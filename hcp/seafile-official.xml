@@ -4,7 +4,6 @@
   <Repository>seafileltd/seafile:latest</Repository>
   <Registry>https://hub.docker.com/r/seafileltd/seafile/</Registry>
   <Network>br0</Network>
-  <MyIP>10.1.5.37</MyIP>
   <Privileged>false</Privileged>
   <Support>https://github.com/haiwen/seafile-docker</Support>
   <Project>https://manual.seafile.com/deploy/deploy_with_docker.html</Project>
