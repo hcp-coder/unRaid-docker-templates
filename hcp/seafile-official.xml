@@ -1,128 +1,128 @@
-    <?xml version="1.0"?>
-    <Container version="2">
-      <Name>seafile_official</Name>
-      <Repository>seafileltd/seafile:latest</Repository>
-      <Registry>https://hub.docker.com/r/seafileltd/seafile/</Registry>
-      <Network>br0</Network>
-      <MyIP>10.1.5.37</MyIP>
-      <Privileged>false</Privileged>
-      <Support>https://github.com/haiwen/seafile-docker</Support>
-      <Project>https://manual.seafile.com/deploy/deploy_with_docker.html</Project>
-      <Overview>Seafile is file synchronisation and sharing server.</Overview>
-      <Category>Cloud: Network:Other Productivity:</Category>
-      <WebUI>http://[IP]:[PORT:8000]</WebUI>
-      <TemplateURL/>
-      <Icon>https://raw.githubusercontent.com/cmer/docker-templates/master/cmer/images/seafile-icon.png</Icon>
-      <ExtraParams/>
-      <PostArgs/>
-      <DateInstalled>1533109533</DateInstalled>
-      <DonateText/>
-      <DonateLink/>
-      <Description>Seafile is file synchronisation and sharing server.</Description>
-      <Networking>
-        <Mode>br0</Mode>
-        <Publish>
-          <Port>
-            <HostPort>8000</HostPort>
-            <ContainerPort>8000</ContainerPort>
-            <Protocol>tcp</Protocol>
-          </Port>
-          <Port>
-            <HostPort>8082</HostPort>
-            <ContainerPort>8082</ContainerPort>
-            <Protocol>tcp</Protocol>
-          </Port>
-        </Publish>
-      </Networking>
-      <Data>
-        <Volume>
-          <HostDir>/mnt/disk1/appdata/seafile_haiwen</HostDir>
-          <ContainerDir>/shared</ContainerDir>
-          <Mode>rw</Mode>
-        </Volume>
-      </Data>
-      <Environment>
-        <Variable>
-          <Value>HCPBox Seafile</Value>
-          <Name>SEAFILE_NAME</Name>
-          <Mode/>
-        </Variable>
-        <Variable>
-          <Value>https://seafile.hcpbox.net</Value>
-          <Name>SEAFILE_SERVER_HOSTNAME</Name>
-          <Mode/>
-        </Variable>
-        <Variable>
-          <Value>hubertus.paar@gmx.net</Value>
-          <Name>SEAFILE_ADMIN_EMAIL</Name>
-          <Mode/>
-        </Variable>
-        <Variable>
-          <Value>vD4-dkB-Kyt-GnU</Value>
-          <Name>SEAFILE_ADMIN_PASSWORD</Name>
-          <Mode/>
-        </Variable>
-        <Variable>
-          <Value>99</Value>
-          <Name>PUID</Name>
-          <Mode/>
-        </Variable>
-        <Variable>
-          <Value>100</Value>
-          <Name>PGID</Name>
-          <Mode/>
-        </Variable>
-        <Variable>
-          <Value>false</Value>
-          <Name>PRO</Name>
-          <Mode/>
-        </Variable>
-        <Variable>
-          <Value>latest</Value>
-          <Name>VERSION</Name>
-          <Mode/>
-        </Variable>
-        <Variable>
-          <Value/>
-          <Name>MYSQL_SERVER</Name>
-          <Mode/>
-        </Variable>
-        <Variable>
-          <Value>seafile</Value>
-          <Name>MYSQL_USER</Name>
-          <Mode/>
-        </Variable>
-        <Variable>
-          <Value/>
-          <Name>MYSQL_USER_PASSWORD</Name>
-          <Mode/>
-        </Variable>
-        <Variable>
-          <Value>3306</Value>
-          <Name>MYSQL_PORT</Name>
-          <Mode/>
-        </Variable>
-        <Variable>
-          <Value/>
-          <Name>MYSQL_ROOT_PASSWORD</Name>
-          <Mode/>
-        </Variable>
-      </Environment>
-      <Labels/>
-      <Config Name="Instance Name" Target="SEAFILE_NAME" Default="" Mode="" Description="ex: My Seafile" Type="Variable" Display="always" Required="true" Mask="false">HCPBox Seafile</Config>
-      <Config Name="Instance URL" Target="SEAFILE_SERVER_HOSTNAME" Default="" Mode="" Description="ex: http://192.168.0.100" Type="Variable" Display="always" Required="true" Mask="false">https://seafile.hcpbox.net</Config>
-      <Config Name="Admin Email" Target="SEAFILE_ADMIN_EMAIL" Default="" Mode="" Description="Container Variable: SEAFILE_ADMIN_EMAIL" Type="Variable" Display="always" Required="true" Mask="false">hubertus.paar@gmx.net</Config>
-      <Config Name="Admin Password" Target="SEAFILE_ADMIN_PASSWORD" Default="" Mode="" Description="Container Variable: SEAFILE_ADMIN_PASSWORD" Type="Variable" Display="always" Required="true" Mask="false">vD4-dkB-Kyt-GnU</Config>
-      <Config Name="Data Path" Target="/shared" Default="/mnt/user/seafile" Mode="rw" Description="Container path: /shared" Type="Path" Display="always" Required="true" Mask="false">/mnt/disk1/appdata/seafile_haiwen</Config>
-      <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="UID for permissions.  Do not change unless you know what you're doing." Type="Variable" Display="always" Required="false" Mask="false">99</Config>
-      <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="GID for permissions.  Do not change unless you know what you're doing." Type="Variable" Display="always" Required="false" Mask="false">100</Config>
-      <Config Name="Web Interface Port" Target="8000" Default="8000" Mode="tcp" Description="SeaHub Web UI. Default: 8000" Type="Port" Display="advanced" Required="true" Mask="false">8000</Config>
-      <Config Name="File Server Port" Target="8082" Default="8082" Mode="tcp" Description="Seafile File Server. Default: 8082" Type="Port" Display="advanced" Required="true" Mask="false">8082</Config>
-      <Config Name="Enable Pro Edition" Target="PRO" Default="false" Mode="" Description="Default: false" Type="Variable" Display="advanced" Required="true" Mask="false">false</Config>
-      <Config Name="Version" Target="VERSION" Default="latest" Mode="" Description="Default: latest" Type="Variable" Display="advanced" Required="true" Mask="false">latest</Config>
-      <Config Name="MySQL Server Host" Target="MYSQL_SERVER" Default="" Mode="" Description="Enables MySQL if this is populated" Type="Variable" Display="advanced" Required="false" Mask="false"/>
-      <Config Name="MySQL User" Target="MYSQL_USER" Default="seafile" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">seafile</Config>
-      <Config Name="MySQL User Password" Target="MYSQL_USER_PASSWORD" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false"/>
-      <Config Name="MySQL Port" Target="MYSQL_PORT" Default="3306" Mode="" Description="Default: 3306" Type="Variable" Display="advanced" Required="false" Mask="false">3306</Config>
-      <Config Name="MySQL root Password" Target="MYSQL_ROOT_PASSWORD" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false"/>
-    </Container>
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>seafile_official</Name>
+  <Repository>seafileltd/seafile:latest</Repository>
+  <Registry>https://hub.docker.com/r/seafileltd/seafile/</Registry>
+  <Network>br0</Network>
+  <MyIP>10.1.5.37</MyIP>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/haiwen/seafile-docker</Support>
+  <Project>https://manual.seafile.com/deploy/deploy_with_docker.html</Project>
+  <Overview>Seafile is file synchronisation and sharing server.</Overview>
+  <Category>Cloud: Network:Other Productivity:</Category>
+  <WebUI>http://[IP]:[PORT:8000]</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/cmer/docker-templates/master/cmer/images/seafile-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <DateInstalled>1533109533</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Seafile is file synchronisation and sharing server.</Description>
+  <Networking>
+    <Mode>br0</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8000</HostPort>
+        <ContainerPort>8000</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8082</HostPort>
+        <ContainerPort>8082</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/disk1/appdata/seafile_haiwen</HostDir>
+      <ContainerDir>/shared</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>HCPBox Seafile</Value>
+      <Name>SEAFILE_NAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>https://seafile.hcpbox.net</Value>
+      <Name>SEAFILE_SERVER_HOSTNAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>hubertus.paar@gmx.net</Value>
+      <Name>SEAFILE_ADMIN_EMAIL</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>vD4-dkB-Kyt-GnU</Value>
+      <Name>SEAFILE_ADMIN_PASSWORD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>99</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>false</Value>
+      <Name>PRO</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>latest</Value>
+      <Name>VERSION</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>MYSQL_SERVER</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>seafile</Value>
+      <Name>MYSQL_USER</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>MYSQL_USER_PASSWORD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>3306</Value>
+      <Name>MYSQL_PORT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>MYSQL_ROOT_PASSWORD</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Instance Name" Target="SEAFILE_NAME" Default="" Mode="" Description="ex: My Seafile" Type="Variable" Display="always" Required="true" Mask="false">HCPBox Seafile</Config>
+  <Config Name="Instance URL" Target="SEAFILE_SERVER_HOSTNAME" Default="" Mode="" Description="ex: http://192.168.0.100" Type="Variable" Display="always" Required="true" Mask="false">https://seafile.hcpbox.net</Config>
+  <Config Name="Admin Email" Target="SEAFILE_ADMIN_EMAIL" Default="" Mode="" Description="Container Variable: SEAFILE_ADMIN_EMAIL" Type="Variable" Display="always" Required="true" Mask="false">hubertus.paar@gmx.net</Config>
+  <Config Name="Admin Password" Target="SEAFILE_ADMIN_PASSWORD" Default="" Mode="" Description="Container Variable: SEAFILE_ADMIN_PASSWORD" Type="Variable" Display="always" Required="true" Mask="false">vD4-dkB-Kyt-GnU</Config>
+  <Config Name="Data Path" Target="/shared" Default="/mnt/user/seafile" Mode="rw" Description="Container path: /shared" Type="Path" Display="always" Required="true" Mask="false">/mnt/disk1/appdata/seafile_haiwen</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="UID for permissions.  Do not change unless you know what you're doing." Type="Variable" Display="always" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="GID for permissions.  Do not change unless you know what you're doing." Type="Variable" Display="always" Required="false" Mask="false">100</Config>
+  <Config Name="Web Interface Port" Target="8000" Default="8000" Mode="tcp" Description="SeaHub Web UI. Default: 8000" Type="Port" Display="advanced" Required="true" Mask="false">8000</Config>
+  <Config Name="File Server Port" Target="8082" Default="8082" Mode="tcp" Description="Seafile File Server. Default: 8082" Type="Port" Display="advanced" Required="true" Mask="false">8082</Config>
+  <Config Name="Enable Pro Edition" Target="PRO" Default="false" Mode="" Description="Default: false" Type="Variable" Display="advanced" Required="true" Mask="false">false</Config>
+  <Config Name="Version" Target="VERSION" Default="latest" Mode="" Description="Default: latest" Type="Variable" Display="advanced" Required="true" Mask="false">latest</Config>
+  <Config Name="MySQL Server Host" Target="MYSQL_SERVER" Default="" Mode="" Description="Enables MySQL if this is populated" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="MySQL User" Target="MYSQL_USER" Default="seafile" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">seafile</Config>
+  <Config Name="MySQL User Password" Target="MYSQL_USER_PASSWORD" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="MySQL Port" Target="MYSQL_PORT" Default="3306" Mode="" Description="Default: 3306" Type="Variable" Display="advanced" Required="false" Mask="false">3306</Config>
+  <Config Name="MySQL root Password" Target="MYSQL_ROOT_PASSWORD" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>
