@@ -1,8 +1,304 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Container>
   <Name>Seafile Official</Name>
-  <Overview>Seafile is file synchronisation and sharing server.</Overview>
-  <Description>Seafile is file synchronisation and sharing server. A nginx-reverse-proxy is recommended. More under https://manual.seafile.com/deploy/deploy_with_docker.html</Description>
+<Overview>Seafile is file synchronisation and sharing server.&#xD;
+&#xD;
+&#xD;
+Getting Started&#xD;
+Wait for a few minutes for the first time initialization, then visit http://seafile.example.com to open Seafile Web UI.&#xD;
+&#xD;
+This command will mount folder /opt/seafile-data at the local server to the docker instance. You can find logs and other data under this folder.&#xD;
+More configuration Options&#xD;
+&#xD;
+&#xD;
+Custom Admin Username and Password&#xD;
+The default admin account is me@example.com and the password is asecret. You can use a different password by setting the container's environment variables: e.g.&#xD;
+&#xD;
+If you forget the admin password, you can add a new admin account and then go to the sysadmin panel to reset user password.&#xD;
+&#xD;
+&#xD;
+Let's encrypt SSL certificate&#xD;
+&#xD;
+If you set SEAFILE_SERVER_LETSENCRYPT to true, the container would request a letsencrypt-signed SSL certificate for you automatically.&#xD;
+&#xD;
+If you want to use your own SSL certificate:&#xD;
+Create a folder /opt/seafile-data/ssl, and put your certificate and private key under the ssl directory.&#xD;
+Assume your site name is seafile.example.com, then your certificate must have the name seafile.example.com.crt, and the private key must have the name seafile.example.com.key.&#xD;
+Modify Seafile Server Configurations&#xD;
+&#xD;
+The config files are under shared/seafile/conf. You can modify the configurations according to Seafile manual&#xD;
+&#xD;
+After modification, you need to restart the container:&#xD;
+&#xD;
+&#xD;
+Find logs&#xD;
+&#xD;
+The seafile logs are under shared/logs/seafile in the docker, or /opt/seafile-data/logs/seafile in the server that run the docker.&#xD;
+The system logs are under shared/logs/var-log, or /opt/seafile-data/logs/var-log in the server that run the docker.&#xD;
+&#xD;
+&#xD;
+Add a new Admin&#xD;
+&#xD;
+Ensure the container is running, then enter this command:&#xD;
+docker exec -it seafile /opt/seafile/seafile-server-latest/reset-admin.sh&#xD;
+Enter the username and password according to the prompts. You now have a new admin account.&#xD;
+&#xD;
+&#xD;
+Directory Structure&#xD;
+/shared&#xD;
+&#xD;
+Placeholder spot for shared volumes. You may elect to store certain persistent information outside of a container, in our case we keep various logfiles and upload directory outside. This allows you to rebuild containers easily without losing important information.&#xD;
+&#xD;
+  /shared/db: This is the data directory for mysql server&#xD;
+  /shared/seafile: This is the directory for seafile server configuration and data.&#xD;
+  /shared/logs: This is the directory for logs.&#xD;
+  /shared/logs/var-log: This is the directory that would be mounted as /var/log inside the container. &#xD;
+    For example, you can find the nginx logs in shared/logs/var-log/nginx/.&#xD;
+  /shared/logs/seafile: This is the directory that would contain the log files of seafile server processes.&#xD;
+    For example, you can find seaf-server logs in shared/logs/seafile/seafile.log.&#xD;
+  /shared/ssl: This is directory for certificate, which does not exist by default.&#xD;
+&#xD;
+&#xD;
+Garbage Collection&#xD;
+&#xD;
+When files are deleted, the blocks comprising those files are not immediately removed as there may be other files that reference those blocks (due to the magic of deduplication). To remove them, Seafile requires a 'garbage collection' process to be run, which detects which blocks no longer used and purges them. (NOTE: for technical reasons, the GC process does not guarantee that every single orphan block will be deleted.)&#xD;
+&#xD;
+The required scripts can be found in the /scripts folder of the docker container. To perform garbage collection, simply run docker exec seafile /scripts/gc.sh. For the community edition, this process will stop the seafile server, but it is a relatively quick process and the seafile server will start automatically once the process has finished. The Professional supports an online garbage collection.&#xD;
+Troubleshooting&#xD;
+&#xD;
+You can run docker commands like "docker logs" or "docker exec" to find errors.&#xD;
+docker logs -f seafile&#xD;
+# or&#xD;
+docker exec -it seafile bash</Overview>
+  <Category>Cloud: Network:Other Productivity:</Category>
+  <WebUI>http://[IP]:[PORT:8000]</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/cmer/docker-templates/master/cmer/images/seafile-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <DateInstalled>1533419411</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Seafile is file synchronisation and sharing server.&#xD;
+&#xD;
+&#xD;
+Getting Started&#xD;
+Wait for a few minutes for the first time initialization, then visit http://seafile.example.com to open Seafile Web UI.&#xD;
+&#xD;
+This command will mount folder /opt/seafile-data at the local server to the docker instance. You can find logs and other data under this folder.&#xD;
+More configuration Options&#xD;
+&#xD;
+&#xD;
+Custom Admin Username and Password&#xD;
+The default admin account is me@example.com and the password is asecret. You can use a different password by setting the container's environment variables: e.g.&#xD;
+&#xD;
+If you forget the admin password, you can add a new admin account and then go to the sysadmin panel to reset user password.&#xD;
+&#xD;
+&#xD;
+Let's encrypt SSL certificate&#xD;
+&#xD;
+If you set SEAFILE_SERVER_LETSENCRYPT to true, the container would request a letsencrypt-signed SSL certificate for you automatically.&#xD;
+&#xD;
+If you want to use your own SSL certificate:&#xD;
+Create a folder /opt/seafile-data/ssl, and put your certificate and private key under the ssl directory.&#xD;
+Assume your site name is seafile.example.com, then your certificate must have the name seafile.example.com.crt, and the private key must have the name seafile.example.com.key.&#xD;
+Modify Seafile Server Configurations&#xD;
+&#xD;
+The config files are under shared/seafile/conf. You can modify the configurations according to Seafile manual&#xD;
+&#xD;
+After modification, you need to restart the container:&#xD;
+&#xD;
+&#xD;
+Find logs&#xD;
+&#xD;
+The seafile logs are under shared/logs/seafile in the docker, or /opt/seafile-data/logs/seafile in the server that run the docker.&#xD;
+The system logs are under shared/logs/var-log, or /opt/seafile-data/logs/var-log in the server that run the docker.&#xD;
+&#xD;
+&#xD;
+Add a new Admin&#xD;
+&#xD;
+Ensure the container is running, then enter this command:&#xD;
+docker exec -it seafile /opt/seafile/seafile-server-latest/reset-admin.sh&#xD;
+Enter the username and password according to the prompts. You now have a new admin account.&#xD;
+&#xD;
+&#xD;
+Directory Structure&#xD;
+/shared&#xD;
+&#xD;
+Placeholder spot for shared volumes. You may elect to store certain persistent information outside of a container, in our case we keep various logfiles and upload directory outside. This allows you to rebuild containers easily without losing important information.&#xD;
+&#xD;
+  /shared/db: This is the data directory for mysql server&#xD;
+  /shared/seafile: This is the directory for seafile server configuration and data.&#xD;
+  /shared/logs: This is the directory for logs.&#xD;
+  /shared/logs/var-log: This is the directory that would be mounted as /var/log inside the container. &#xD;
+    For example, you can find the nginx logs in shared/logs/var-log/nginx/.&#xD;
+  /shared/logs/seafile: This is the directory that would contain the log files of seafile server processes.&#xD;
+    For example, you can find seaf-server logs in shared/logs/seafile/seafile.log.&#xD;
+  /shared/ssl: This is directory for certificate, which does not exist by default.&#xD;
+&#xD;
+&#xD;
+Garbage Collection&#xD;
+&#xD;
+When files are deleted, the blocks comprising those files are not immediately removed as there may be other files that reference those blocks (due to the magic of deduplication). To remove them, Seafile requires a 'garbage collection' process to be run, which detects which blocks no longer used and purges them. (NOTE: for technical reasons, the GC process does not guarantee that every single orphan block will be deleted.)&#xD;
+&#xD;
+The required scripts can be found in the /scripts folder of the docker container. To perform garbage collection, simply run docker exec seafile /scripts/gc.sh. For the community edition, this process will stop the seafile server, but it is a relatively quick process and the seafile server will start automatically once the process has finished. The Professional supports an online garbage collection.&#xD;
+Troubleshooting&#xD;
+&#xD;
+You can run docker commands like "docker logs" or "docker exec" to find errors.&#xD;
+docker logs -f seafile&#xD;
+# or&#xD;
+docker exec -it seafile bash
+</Overview>
+
+<Description>Seafile is file synchronisation and sharing server.&#xD;
+&#xD;
+&#xD;
+Getting Started&#xD;
+Wait for a few minutes for the first time initialization, then visit http://seafile.example.com to open Seafile Web UI.&#xD;
+&#xD;
+This command will mount folder /opt/seafile-data at the local server to the docker instance. You can find logs and other data under this folder.&#xD;
+More configuration Options&#xD;
+&#xD;
+&#xD;
+Custom Admin Username and Password&#xD;
+The default admin account is me@example.com and the password is asecret. You can use a different password by setting the container's environment variables: e.g.&#xD;
+&#xD;
+If you forget the admin password, you can add a new admin account and then go to the sysadmin panel to reset user password.&#xD;
+&#xD;
+&#xD;
+Let's encrypt SSL certificate&#xD;
+&#xD;
+If you set SEAFILE_SERVER_LETSENCRYPT to true, the container would request a letsencrypt-signed SSL certificate for you automatically.&#xD;
+&#xD;
+If you want to use your own SSL certificate:&#xD;
+Create a folder /opt/seafile-data/ssl, and put your certificate and private key under the ssl directory.&#xD;
+Assume your site name is seafile.example.com, then your certificate must have the name seafile.example.com.crt, and the private key must have the name seafile.example.com.key.&#xD;
+Modify Seafile Server Configurations&#xD;
+&#xD;
+The config files are under shared/seafile/conf. You can modify the configurations according to Seafile manual&#xD;
+&#xD;
+After modification, you need to restart the container:&#xD;
+&#xD;
+&#xD;
+Find logs&#xD;
+&#xD;
+The seafile logs are under shared/logs/seafile in the docker, or /opt/seafile-data/logs/seafile in the server that run the docker.&#xD;
+The system logs are under shared/logs/var-log, or /opt/seafile-data/logs/var-log in the server that run the docker.&#xD;
+&#xD;
+&#xD;
+Add a new Admin&#xD;
+&#xD;
+Ensure the container is running, then enter this command:&#xD;
+docker exec -it seafile /opt/seafile/seafile-server-latest/reset-admin.sh&#xD;
+Enter the username and password according to the prompts. You now have a new admin account.&#xD;
+&#xD;
+&#xD;
+Directory Structure&#xD;
+/shared&#xD;
+&#xD;
+Placeholder spot for shared volumes. You may elect to store certain persistent information outside of a container, in our case we keep various logfiles and upload directory outside. This allows you to rebuild containers easily without losing important information.&#xD;
+&#xD;
+  /shared/db: This is the data directory for mysql server&#xD;
+  /shared/seafile: This is the directory for seafile server configuration and data.&#xD;
+  /shared/logs: This is the directory for logs.&#xD;
+  /shared/logs/var-log: This is the directory that would be mounted as /var/log inside the container. &#xD;
+    For example, you can find the nginx logs in shared/logs/var-log/nginx/.&#xD;
+  /shared/logs/seafile: This is the directory that would contain the log files of seafile server processes.&#xD;
+    For example, you can find seaf-server logs in shared/logs/seafile/seafile.log.&#xD;
+  /shared/ssl: This is directory for certificate, which does not exist by default.&#xD;
+&#xD;
+&#xD;
+Garbage Collection&#xD;
+&#xD;
+When files are deleted, the blocks comprising those files are not immediately removed as there may be other files that reference those blocks (due to the magic of deduplication). To remove them, Seafile requires a 'garbage collection' process to be run, which detects which blocks no longer used and purges them. (NOTE: for technical reasons, the GC process does not guarantee that every single orphan block will be deleted.)&#xD;
+&#xD;
+The required scripts can be found in the /scripts folder of the docker container. To perform garbage collection, simply run docker exec seafile /scripts/gc.sh. For the community edition, this process will stop the seafile server, but it is a relatively quick process and the seafile server will start automatically once the process has finished. The Professional supports an online garbage collection.&#xD;
+Troubleshooting&#xD;
+&#xD;
+You can run docker commands like "docker logs" or "docker exec" to find errors.&#xD;
+docker logs -f seafile&#xD;
+# or&#xD;
+docker exec -it seafile bash</Overview>
+  <Category>Cloud: Network:Other Productivity:</Category>
+  <WebUI>http://[IP]:[PORT:8000]</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/cmer/docker-templates/master/cmer/images/seafile-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <DateInstalled>1533419411</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Seafile is file synchronisation and sharing server.&#xD;
+&#xD;
+&#xD;
+Getting Started&#xD;
+Wait for a few minutes for the first time initialization, then visit http://seafile.example.com to open Seafile Web UI.&#xD;
+&#xD;
+This command will mount folder /opt/seafile-data at the local server to the docker instance. You can find logs and other data under this folder.&#xD;
+More configuration Options&#xD;
+&#xD;
+&#xD;
+Custom Admin Username and Password&#xD;
+The default admin account is me@example.com and the password is asecret. You can use a different password by setting the container's environment variables: e.g.&#xD;
+&#xD;
+If you forget the admin password, you can add a new admin account and then go to the sysadmin panel to reset user password.&#xD;
+&#xD;
+&#xD;
+Let's encrypt SSL certificate&#xD;
+&#xD;
+If you set SEAFILE_SERVER_LETSENCRYPT to true, the container would request a letsencrypt-signed SSL certificate for you automatically.&#xD;
+&#xD;
+If you want to use your own SSL certificate:&#xD;
+Create a folder /opt/seafile-data/ssl, and put your certificate and private key under the ssl directory.&#xD;
+Assume your site name is seafile.example.com, then your certificate must have the name seafile.example.com.crt, and the private key must have the name seafile.example.com.key.&#xD;
+Modify Seafile Server Configurations&#xD;
+&#xD;
+The config files are under shared/seafile/conf. You can modify the configurations according to Seafile manual&#xD;
+&#xD;
+After modification, you need to restart the container:&#xD;
+&#xD;
+&#xD;
+Find logs&#xD;
+&#xD;
+The seafile logs are under shared/logs/seafile in the docker, or /opt/seafile-data/logs/seafile in the server that run the docker.&#xD;
+The system logs are under shared/logs/var-log, or /opt/seafile-data/logs/var-log in the server that run the docker.&#xD;
+&#xD;
+&#xD;
+Add a new Admin&#xD;
+&#xD;
+Ensure the container is running, then enter this command:&#xD;
+docker exec -it seafile /opt/seafile/seafile-server-latest/reset-admin.sh&#xD;
+Enter the username and password according to the prompts. You now have a new admin account.&#xD;
+&#xD;
+&#xD;
+Directory Structure&#xD;
+/shared&#xD;
+&#xD;
+Placeholder spot for shared volumes. You may elect to store certain persistent information outside of a container, in our case we keep various logfiles and upload directory outside. This allows you to rebuild containers easily without losing important information.&#xD;
+&#xD;
+  /shared/db: This is the data directory for mysql server&#xD;
+  /shared/seafile: This is the directory for seafile server configuration and data.&#xD;
+  /shared/logs: This is the directory for logs.&#xD;
+  /shared/logs/var-log: This is the directory that would be mounted as /var/log inside the container. &#xD;
+    For example, you can find the nginx logs in shared/logs/var-log/nginx/.&#xD;
+  /shared/logs/seafile: This is the directory that would contain the log files of seafile server processes.&#xD;
+    For example, you can find seaf-server logs in shared/logs/seafile/seafile.log.&#xD;
+  /shared/ssl: This is directory for certificate, which does not exist by default.&#xD;
+&#xD;
+&#xD;
+Garbage Collection&#xD;
+&#xD;
+When files are deleted, the blocks comprising those files are not immediately removed as there may be other files that reference those blocks (due to the magic of deduplication). To remove them, Seafile requires a 'garbage collection' process to be run, which detects which blocks no longer used and purges them. (NOTE: for technical reasons, the GC process does not guarantee that every single orphan block will be deleted.)&#xD;
+&#xD;
+The required scripts can be found in the /scripts folder of the docker container. To perform garbage collection, simply run docker exec seafile /scripts/gc.sh. For the community edition, this process will stop the seafile server, but it is a relatively quick process and the seafile server will start automatically once the process has finished. The Professional supports an online garbage collection.&#xD;
+Troubleshooting&#xD;
+&#xD;
+You can run docker commands like "docker logs" or "docker exec" to find errors.&#xD;
+docker logs -f seafile&#xD;
+# or&#xD;
+docker exec -it seafile bash
+</Description>  
+  
   <Support>https://github.com/haiwen/seafile-docker</Support>
   <Project>https://manual.seafile.com/deploy/deploy_with_docker.html</Project>
   <Category>Cloud: Network:Other Productivity:</Category>
