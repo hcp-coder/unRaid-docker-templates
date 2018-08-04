@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Container>
-  <Name>Seafile Offial</Name>
+  <Name>Seafile Official</Name>
   <Overview>Seafile is file synchronisation and sharing server.</Overview>
   <Description>Seafile is file synchronisation and sharing server. A nginx-reverse-proxy is recommended. More under https://manual.seafile.com/deploy/deploy_with_docker.html</Description>
   <Support>https://github.com/haiwen/seafile-docker</Support>
