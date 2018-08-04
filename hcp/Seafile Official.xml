@@ -138,16 +138,10 @@ docker logs -f seafile&#xD;
 docker exec -it seafile bash
 </Description>
 
-
   <Category>Cloud: Network:Other Productivity:</Category>
-  <WebUI>http://[IP]:[PORT:8000]</WebUI>
+  <WebUI>http://[IP]:[PORT:81]</WebUI>
 
   <Icon>https://raw.githubusercontent.com/cmer/docker-templates/master/cmer/images/seafile-icon.png</Icon>
-  <ExtraParams/>
-  <PostArgs/>
-  <DateInstalled>1533419411</DateInstalled>
-  <DonateText/>
-  <DonateLink/>
   <Support>https://github.com/haiwen/seafile-docker</Support>
   <Project>https://manual.seafile.com/deploy/deploy_with_docker.html</Project>
   <Category>Cloud: Network:Other Productivity:</Category>
@@ -170,7 +164,6 @@ docker exec -it seafile bash
  
   <Version>1.0</Version>
   <Date>2018-08-04</Date>
-  <WebUI>http://[iP]:[PORT:81]/</WebUI>
   <ExtraParams></ExtraParams>
  
   <Config Name="Web Interface Port" Target="80" Default="80" Mode="tcp" Description="SeaHub Web UI. Default: 80" Type="Port" Display="always" Required="true" Mask="false">81</Config>
