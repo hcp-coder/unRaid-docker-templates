@@ -4,8 +4,10 @@
 
 <Overview>Seafile is file synchronisation and sharing server.&#xD;
 &#xD;
+The container is build from the official Seafile Docker Image by Seafile Ltd. Only the community edition is supported at the moment.&#xD;
+&#xD;
 Getting Started&#xD;
-Wait for a few minutes for the first time initialization, then visit http://seafile.example.com to open Seafile Web UI.&#xD;
+Wait for a few minutes for the first time initialization, then visit e.g. http://seafile.example.com to open Seafile Web UI.&#xD;
 &#xD;
 This command will mount folder /opt/seafile-data at the local server to the docker instance. You can find logs and other data under this folder.&#xD;
 &#xD;
@@ -72,8 +74,10 @@ docker exec -it seafile bash
 
 <Description>Seafile is file synchronisation and sharing server.&#xD;
 &#xD;
+The container is build from the official Seafile Docker Image by Seafile Ltd. Only the community edition is supported at the moment.&#xD;
+&#xD;
 Getting Started&#xD;
-Wait for a few minutes for the first time initialization, then visit http://seafile.example.com to open Seafile Web UI.&#xD;
+Wait for a few minutes for the first time initialization, then visit e.g. http://seafile.example.com to open Seafile Web UI.&#xD;
 &#xD;
 This command will mount folder /opt/seafile-data at the local server to the docker instance. You can find logs and other data under this folder.&#xD;
 &#xD;
