@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Container>
-  <Name>Pints</Name>
-  <Description>Raspberry Pints, beer tap display app[br]IMPORTANT :- YOU MUST CHANGE THE HOST PORT BELOW</Description>
-  <Registry>https://registry.hub.docker.com/u/sparklyballs/pints/</Registry>
-  <Repository>sparklyballs/pints</Repository>
+  <Name>Seafile Offial</Name>
+  <Overview>Seafile is file synchronisation and sharing server.</Overview>
+  <Description>Seafile is file synchronisation and sharing server.</Description>
+  <Support>https://github.com/haiwen/seafile-docker</Support>
+  <Project>https://manual.seafile.com/deploy/deploy_with_docker.html</Project>
+  <Overview>Seafile is file synchronisation and sharing server.</Overview>
+  <Category>Cloud: Network:Other Productivity:</Category>
+  <Icon>https://raw.githubusercontent.com/cmer/docker-templates/master/cmer/images/seafile-icon.png</Icon>
+  <Registry>https://hub.docker.com/r/seafileltd/seafile/</Registry>
+  <Repository>seafileltd/seafile:latest</Repository>
   <BindTime>true</BindTime>
   <Privileged>false</Privileged>
-  <Environment/>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
       <Port>
-        <HostPort>81</HostPort>
-        <ContainerPort>80</ContainerPort>
+        <HostPort>8000</HostPort>
+        <ContainerPort>8000</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
     </Publish>
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/cache/appdata/pints/www</HostDir>
-      <ContainerDir>/var/www/Pints</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-    <Volume>
-      <HostDir>/mnt/cache/appdata/pints/config</HostDir>
-      <ContainerDir>/config</ContainerDir>
+      <HostDir>/mnt/user/appdata/seafile</HostDir>
+      <ContainerDir>/shared</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <Version>05616fd2</Version>
-  <WebUI>http://[iP]:[PORT:80]/</WebUI>
-  <Banner>http://whatsmybeeragain.com/wp-content/uploads/2013/12/Whats-My-Beer-Logo-Banner-2-01-e1318366883801.png</Banner>
-  <Icon>http://fullersbarbeerfest.co.uk/files/6113/8705/6693/light-beer.png</Icon>
+  <Version>1.0</Version>
+  <Date>2018-08-04</Date>
+   <WebUI>http://[iP]:[PORT:8000]/</WebUI>
   <ExtraParams></ExtraParams>
+  <Config Name="App Data" Target="/shared" Default="/mnt/user/seafile" Mode="rw" Description="Container path: /shared" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/seafile</Config>
 </Container>
