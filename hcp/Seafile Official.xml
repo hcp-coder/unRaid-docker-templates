@@ -23,11 +23,6 @@
     </Publish>
   </Networking>
   <Data>
-    <Volume>
-      <HostDir>/mnt/user/appdata/seafile</HostDir>
-      <ContainerDir>/shared</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
   </Data>
   <Version>1.0</Version>
   <Date>2018-08-04</Date>
