@@ -15,9 +15,15 @@
     <Mode>bridge</Mode>
     <Publish>
       <Port>
-        <HostPort>8000</HostPort>
-        <ContainerPort>8000</ContainerPort>
+        <HostPort>81</HostPort>
+        <ContainerPort>80</ContainerPort>
         <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>444</HostPort>
+        <ContainerPort>443</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
       </Port>
     </Publish>
   </Networking>
@@ -25,10 +31,9 @@
   </Data>
   <Version>1.0</Version>
   <Date>2018-08-04</Date>
-  <WebUI>http://[iP]:[PORT:8000]/</WebUI>
+  <WebUI>http://[iP]:[PORT:81]/</WebUI>
   <ExtraParams></ExtraParams>
-    <Config Name="AppData Config Path:" Target="/shared" Default="/mnt/user/seafile" Mode="rw" Description="Container path: /shared" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/disk1/appdata/seafile</Config>
+  <Config Name="AppData Config Path:" Target="/shared" Default="/mnt/user/seafile" Mode="rw" Description="Container path: /shared" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/disk1/appdata/seafile</Config>
   <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="UID for permissions.  Do not change unless you know what you're doing." Type="Variable" Display="advanced-hide" Required="false" Mask="false">99</Config>
   <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="GID for permissions.  Do not change unless you know what you're doing." Type="Variable" Display="advanced-hide" Required="false" Mask="false">100</Config>
-  <Config Name="SEAFILE_SERVER_HOSTNAME" Target="SEAFILE_SERVER_HOSTNAME" Default="seafile.example.com" Mode="" Description="ex: seafile.example.com" Type="Variable" Display="always" Required="true" Mask="false">seafile.example.com</Config>
 </Container>
