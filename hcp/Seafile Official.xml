@@ -22,18 +22,15 @@
   <Date>2018-08-04</Date>
   <WebUI>http://[iP]:[PORT:81]/</WebUI>
   <ExtraParams></ExtraParams>
-  <Config Name="AppData Config Path:" Target="/shared" Default="/mnt/user/seafile" Mode="rw" Description="Container path: /shared" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/disk1/appdata/seafile</Config>
-  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="UID for permissions.  Do not change unless you know what you're doing." Type="Variable" Display="advanced-hide" Required="false" Mask="false">99</Config>
-  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="GID for permissions.  Do not change unless you know what you're doing." Type="Variable" Display="advanced-hide" Required="false" Mask="false">100</Config>
+  <Config Name="Web Interface Port" Target="80" Default="80" Mode="tcp" Description="SeaHub Web UI. Default: 80" Type="Port" Display="always" Required="true" Mask="false">81</Config>
+  <Config Name="Web Interface Port SSL" Target="443" Default="443" Mode="tcp" Description="Seafile File Server. Default: 443" Type="Port" Display="always" Required="true" Mask="false">444</Config>
   <Config Name="SEAFILE_SERVER_HOSTNAME" Target="SEAFILE_SERVER_HOSTNAME" Default="seafile.example.com" Mode="" Description="ex: seafile.example.com" Type="Variable" Display="always" Required="true" Mask="false">seafile.example.com</Config>
   <Config Name="SEAFILE_ADMIN_EMAIL" Target="SEAFILE_ADMIN_EMAIL" Default="me@example.com" Mode="" Description="ex: me@example.com" Type="Variable" Display="always" Required="true" Mask="false">me@example.com</Config>
   <Config Name="SEAFILE_ADMIN_PASSWORD" Target="SEAFILE_ADMIN_PASSWORD" Default="a_very_secret_password" Mode="" Description="ex: a_very_secret_password" Type="Variable" Display="always" Required="true" Mask="false">a_very_secret_password/Config>
   <Config Name="SEAFILE_SERVER_LETSENCRYPT" Target="SEAFILE_SERVER_LETSENCRYPT" Default="true" Mode="" Description="Default: true, true/false" Type="Variable" Display="always" Required="true" Mask="false">true/Config>
-
-  <Config Name="Web Interface Port" Target="80" Default="80" Mode="tcp" Description="SeaHub Web UI. Default: 80" Type="Port" Display="always" Required="true" Mask="false">81</Config>
-  <Config Name="Web Interface Port SSL" Target="443" Default="443" Mode="tcp" Description="Seafile File Server. Default: 443" Type="Port" Display="always" Required="true" Mask="false">444</Config>
+  <Config Name="AppData Config Path:" Target="/shared" Default="/mnt/user/seafile" Mode="rw" Description="Container path: /shared" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/disk1/appdata/seafile</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="UID for permissions.  Do not change unless you know what you're doing." Type="Variable" Display="advanced-hide" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="GID for permissions.  Do not change unless you know what you're doing." Type="Variable" Display="advanced-hide" Required="false" Mask="false">100</Config>
   <Config Name="Web Interface Port Seafile" Target="8000" Default="8000" Mode="tcp" Description="SeaHub Web UI. Default: 8000" Type="Port" Display="advanced-hide" Required="true" Mask="false">8000</Config>
-  <Config Name="File Server Port Seafile" Target="8082" Default="8082" Mode="tcp" Description="Seafile File Server. Default: 8082" Type="Port" Display="advanced-hide" Required="true" Mask="false">8082</Config>
-
-    
+  <Config Name="File Server Port Seafile" Target="8082" Default="8082" Mode="tcp" Description="Seafile File Server. Default: 8082" Type="Port" Display="advanced-hide" Required="true" Mask="false">8082</Config>   
 </Container>
