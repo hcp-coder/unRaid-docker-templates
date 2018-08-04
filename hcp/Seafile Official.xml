@@ -33,7 +33,4 @@
   <Date>2018-08-04</Date>
   <WebUI>http://[iP]:[PORT:81]/</WebUI>
   <ExtraParams></ExtraParams>
-  <Config Name="AppData Config Path:" Target="/shared" Default="/mnt/user/seafile" Mode="rw" Description="Container path: /shared" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/disk1/appdata/seafile</Config>
-  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="UID for permissions.  Do not change unless you know what you're doing." Type="Variable" Display="advanced-hide" Required="false" Mask="false">99</Config>
-
 </Container>
