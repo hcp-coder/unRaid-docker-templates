@@ -14,17 +14,6 @@
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
-      <Port>
-        <HostPort>81</HostPort>
-        <ContainerPort>80</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
-      <Port>
-        <HostPort>444</HostPort>
-        <ContainerPort>443</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
-      </Port>
     </Publish>
   </Networking>
   <Data>
@@ -41,4 +30,10 @@
   <Config Name="SEAFILE_ADMIN_PASSWORD" Target="SEAFILE_ADMIN_PASSWORD" Default="a_very_secret_password" Mode="" Description="ex: a_very_secret_password" Type="Variable" Display="always" Required="true" Mask="false">a_very_secret_password/Config>
   <Config Name="SEAFILE_SERVER_LETSENCRYPT" Target="SEAFILE_SERVER_LETSENCRYPT" Default="true" Mode="" Description="Default: true, true/false" Type="Variable" Display="always" Required="true" Mask="false">true/Config>
 
+  <Config Name="Web Interface Port" Target="80" Default="80" Mode="tcp" Description="SeaHub Web UI. Default: 80" Type="Port" Display="advanced-hide" Required="true" Mask="false">8000</Config>
+  <Config Name="File Server Port" Target="443" Default="443" Mode="tcp" Description="Seafile File Server. Default: 443" Type="Port" Display="advanced-hide" Required="true" Mask="false">8082</Config>
+  <Config Name="Web Interface Port Seafile" Target="8000" Default="8000" Mode="tcp" Description="SeaHub Web UI. Default: 8000" Type="Port" Display="advanced-hide" Required="true" Mask="false">8000</Config>
+  <Config Name="File Server Port Seafile" Target="8082" Default="8082" Mode="tcp" Description="Seafile File Server. Default: 8082" Type="Port" Display="advanced-hide" Required="true" Mask="false">8082</Config>
+
+    
 </Container>
