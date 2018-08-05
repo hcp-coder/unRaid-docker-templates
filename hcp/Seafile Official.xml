@@ -153,7 +153,7 @@ docker exec -it seafile bash
 
   <Registry>https://hub.docker.com/r/seafileltd/seafile/</Registry>
   <Repository>seafileltd/seafile:latest</Repository>
-
+  <TemplateURL>https://github.com/pit-c/unRaid-docker-templates</TemplateURL>
   <BindTime>true</BindTime>
 
   <Privileged>false</Privileged>
