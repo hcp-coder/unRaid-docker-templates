@@ -170,8 +170,8 @@ docker exec -it seafile bash
   <Date>2018-08-04</Date>
   <ExtraParams></ExtraParams>
  
-  <Config Name="Web Interface Port" Target="80" Default="80" Mode="tcp" Description="SeaHub Web UI. Default: 80" Type="Port" Display="always" Required="true" Mask="false">81</Config>
-  <Config Name="Web Interface Port SSL" Target="443" Default="443" Mode="tcp" Description="Seafile File Server. Default: 443" Type="Port" Display="always" Required="true" Mask="false">444</Config>
+  <Config Name="Web Interface Port" Target="80" Default="80" Mode="tcp" Description="SeaHub Web UI. Default: 81" Type="Port" Display="always" Required="true" Mask="false">81</Config>
+  <Config Name="Web Interface Port SSL" Target="443" Default="443" Mode="tcp" Description="Seafile File Server. Default: 444" Type="Port" Display="always" Required="true" Mask="false">444</Config>
  
   <Config Name="SEAFILE_SERVER_HOSTNAME" Target="SEAFILE_SERVER_HOSTNAME" Default="seafile.example.com" Mode="" Description="ex: seafile.example.com" Type="Variable" Display="always" Required="true" Mask="false">seafile.example.com</Config>
   <Config Name="SEAFILE_ADMIN_EMAIL" Target="SEAFILE_ADMIN_EMAIL" Default="me@example.com" Mode="" Description="ex: me@example.com" Type="Variable" Display="always" Required="true" Mask="false">me@example.com</Config>
