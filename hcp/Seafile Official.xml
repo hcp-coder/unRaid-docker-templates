@@ -153,7 +153,7 @@ docker exec -it seafile bash
 
   <Registry>https://hub.docker.com/r/seafileltd/seafile/</Registry>
   <Repository>seafileltd/seafile:latest</Repository>
-  <TemplateURL><TemplateURL>https://raw.githubusercontent.com/pit-c/docker-templates/master/pit-c/Seafile Official.xml</TemplateURL>
+  <TemplateURL><TemplateURL>https://raw.githubusercontent.com/pit-c/unRaid-docker-templates/master/hcp/Seafile%20Official.xml</TemplateURL>
   <BindTime>true</BindTime>
 
   <Privileged>false</Privileged>
