@@ -149,7 +149,7 @@ docker exec -it seafile bash
   <Support>https://github.com/haiwen/seafile-docker</Support>
   <Project>https://manual.seafile.com/deploy/deploy_with_docker.html</Project>
   <Category>Cloud: Network:Other Productivity:</Category>
-  <Icon>https://raw.githubusercontent.com/cmer/docker-templates/master/cmer/images/seafile-icon.png</Icon>
+  <Icon>https://github.com/pit-c/unRaid-docker-templates/blob/master/icons/seafile-icon.png</Icon>
 
   <Registry>https://hub.docker.com/r/seafileltd/seafile/</Registry>
   <Repository>seafileltd/seafile:latest</Repository>
